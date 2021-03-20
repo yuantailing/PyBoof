@@ -384,6 +384,8 @@ class QrCode:
             self.pp_right = Polygon2D(4)
             self.pp_corner = Polygon2D(4)
             self.pp_down = Polygon2D(4)
+            self.rawbits = b""
+            self.corrected  = b""
         else:
             jobj = JavaWrapper(java_object)
             self.verson = jobj.version
@@ -396,6 +398,8 @@ class QrCode:
             self.pp_right = Polygon2D(jobj.ppRight)
             self.pp_corner = Polygon2D(jobj.ppCorner)
             self.pp_down = Polygon2D(jobj.ppDown)
+            self.rawbits = jobj.rawbits
+            self.corrected  = jobj.corrected
 
             if jobj.failureCause is not None:
                 self.failure_cause = jobj.failureCause.toString()
